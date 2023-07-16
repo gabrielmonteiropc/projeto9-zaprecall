@@ -1,30 +1,65 @@
 import imagemPerguntasF from './../assets/seta_play.png'
 import styled from 'styled-components'
 import imagemPerguntasA from './../assets/seta_virar.png'
-
+import { useState } from 'react';
 
 export default function CartasTelaPrincipal(props) {
 
-    const {card, indice} = props;
+    const { card, indice } = props;
+
+    //Variáveis de Estado
+    const [comecar, setComecar] = useState(false);
+    const [virarCarta, setVirarCarta] = useState(false);
+
+
+    function mostrarPergunta() {
+
+        setComecar(true);
+
+    }
+
+    function turnedCard(){
+
+        setVirarCarta(true);
+    }
 
     return (
-        <PerguntasF>
-            <p>Pergunta {indice + 1}</p>
-            <img src={imagemPerguntasF} alt='Imagem play das perguntas' />
-        </PerguntasF>
-
-        // < PerguntasA>
-        //     O que é JSX
-        //     <img src={imagemPerguntasA} alt='Imagem play das perguntas' />
-
-        //     JSX é uma sintase
-        //     escrever HTML dentro do JS
-        //     <Botoes>
-        //         <Botao>Não lembrei</Botao>
-        //         <Botao>Quase não lembrei</Botao>
-        //         <Botao>Zap!</Botao>
-        //     </Botoes>
-        // </PerguntasA>
+        <>
+            {!comecar
+                ?
+                (
+                    <PerguntasF>
+                        <p>Pergunta {indice + 1}</p>
+                        <img onClick={mostrarPergunta} src={imagemPerguntasF} alt='Imagem play das perguntas' />
+                    </PerguntasF>
+                )
+                :
+                (
+                    < PerguntasA>
+                        {!virarCarta
+                        ?
+                            (
+                                <>
+                                    {card.question}
+                                    <img onClick={turnedCard} src={imagemPerguntasA} alt='Imagem play das perguntas' />
+                                </>
+                            )
+                        :
+                            (       
+                                <>
+                                    {card.answer}
+                                    <Botoes>
+                                        <Botao>Não lembrei</Botao>
+                                        <Botao>Quase não lembrei</Botao>
+                                        <Botao>Zap!</Botao>
+                                    </Botoes> 
+                                </>
+                            )
+                    }
+                    </PerguntasA>
+                )
+            }
+        </>
     );
 }
 

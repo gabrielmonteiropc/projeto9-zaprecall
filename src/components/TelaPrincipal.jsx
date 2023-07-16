@@ -1,5 +1,5 @@
 import logo from './../assets/logo.png'
-import CartasTelaPrincipal from './CartasTelaPrincipal';
+import CartasTelaPrincipal from './CartasTelaPrincipal'
 import Footer from './Footer';
 import styled from 'styled-components'
 
@@ -18,7 +18,7 @@ export default function TelaPrincipal(props) {
 
             </Logo>
 
-            {cards.map( (card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} />)}
+            {cards.map((card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} />)}
 
 
             <Footer />
