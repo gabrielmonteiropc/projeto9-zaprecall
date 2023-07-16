@@ -2,6 +2,7 @@ import imagemPerguntasF from './../assets/seta_play.png'
 import styled from 'styled-components'
 import imagemPerguntasA from './../assets/seta_virar.png'
 import { useState } from 'react';
+import{vermelho, verde, amarelo, cinza } from './../mudarCorBotao.js'
 
 export default function CartasTelaPrincipal(props) {
 
@@ -49,9 +50,9 @@ export default function CartasTelaPrincipal(props) {
                                 <>
                                     {card.answer}
                                     <Botoes>
-                                        <Botao>Não lembrei</Botao>
-                                        <Botao>Quase não lembrei</Botao>
-                                        <Botao>Zap!</Botao>
+                                        <Botao corBotao={vermelho}>Não lembrei</Botao>
+                                        <Botao corBotao={amarelo}>Quase não lembrei</Botao>
+                                        <Botao corBotao={verde}>Zap!</Botao>
                                     </Botoes> 
                                 </>
                             )
@@ -125,8 +126,8 @@ const Botao = styled.button`
     justify-content: center;
     text-align: center;
     color: #FFFFFF;
-    background-color: blue;
+    background-color: ${ props => props.corBotao };
     border-radius: 5px;
-    border: 1px solid blue;
+    border: 1px solid ${ props => props.corBotao };
     padding: 5px;
 `;
