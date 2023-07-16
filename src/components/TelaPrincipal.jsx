@@ -3,23 +3,23 @@ import CartasTelaPrincipal from './CartasTelaPrincipal';
 import Footer from './Footer';
 import styled from 'styled-components'
 
-export default function TelaPrincipal() {
+export default function TelaPrincipal(props) {
+
+    const { cards } = props;
+
     return (
 
         <Tela>
 
             <Logo>
 
-            <img src={logo} alt='Logo-principal' />
-            <h1>ZapRecall</h1>
+                <img src={logo} alt='Logo-principal' />
+                <h1>ZapRecall</h1>
 
             </Logo>
 
+            {cards.map( (card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} />)}
 
-            <CartasTelaPrincipal />
-            <CartasTelaPrincipal />
-            <CartasTelaPrincipal />
-            <CartasTelaPrincipal />
 
             <Footer />
 

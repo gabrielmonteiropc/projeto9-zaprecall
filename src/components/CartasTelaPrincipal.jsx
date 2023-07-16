@@ -3,25 +3,28 @@ import styled from 'styled-components'
 import imagemPerguntasA from './../assets/seta_virar.png'
 
 
-export default function CartasTelaPrincipal() {
+export default function CartasTelaPrincipal(props) {
+
+    const {card, indice} = props;
+
     return (
-        // <PerguntasF>
-        //     <p>Pergunta 01</p>
-        //     <img src={imagemPerguntasF} alt='Imagem play das perguntas' />
-        // </PerguntasF>
+        <PerguntasF>
+            <p>Pergunta {indice + 1}</p>
+            <img src={imagemPerguntasF} alt='Imagem play das perguntas' />
+        </PerguntasF>
 
-        < PerguntasA>
-            {/*O que é JSX
-            <img src={imagemPerguntasA} alt='Imagem play das perguntas' />*/}
+        // < PerguntasA>
+        //     O que é JSX
+        //     <img src={imagemPerguntasA} alt='Imagem play das perguntas' />
 
-            JSX é uma sintase
-            escrever HTML dentro do JS
-            <Botoes>
-                <Botao>Não lembrei</Botao>
-                <Botao>Quase não lembrei</Botao>
-                <Botao>Zap!</Botao>
-            </Botoes>
-        </PerguntasA>
+        //     JSX é uma sintase
+        //     escrever HTML dentro do JS
+        //     <Botoes>
+        //         <Botao>Não lembrei</Botao>
+        //         <Botao>Quase não lembrei</Botao>
+        //         <Botao>Zap!</Botao>
+        //     </Botoes>
+        // </PerguntasA>
     );
 }
 

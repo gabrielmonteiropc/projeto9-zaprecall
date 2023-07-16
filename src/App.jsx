@@ -5,7 +5,7 @@ export default function App() {
 
   return (
     <>
-      <TelaPrincipal />
+      <TelaPrincipal cards={cards} />
     </>
   )
 }
