@@ -46,7 +46,7 @@ export default function CartasTelaPrincipal(props) {
                 )
                 :
                 (
-                    < PerguntasA>
+                    < PerguntasA data-test="flashcard">
                         {!virarCarta
                             ?
                             (
