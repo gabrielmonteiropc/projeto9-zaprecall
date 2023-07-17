@@ -21,7 +21,7 @@ export default function TelaPrincipal(props) {
 
             </Logo>
 
-            {cards.map((card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} contador={contador} setContador={setContador} />)}
+            {cards.map((card, indice) => <CartasTelaPrincipal data-test="flashcard-text" key={card.question} indice={indice} card={card} contador={contador} setContador={setContador} />)}
 
 
             <Footer cards={cards} contador={contador} />
