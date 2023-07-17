@@ -16,7 +16,7 @@ export default function CartasTelaPrincipal(props) {
 
     function mostrarPergunta() {
 
-        if(botaoStatus === 'Ainda não respondeu' ){
+        if (botaoStatus === 'Ainda não respondeu') {
             setComecar(true);
         }
     }
@@ -39,9 +39,9 @@ export default function CartasTelaPrincipal(props) {
             {!comecar
                 ?
                 (
-                    <PerguntasF botaoStatus={botaoStatus}>
-                        <p>Pergunta {indice + 1}</p>
-                        <IconePergunta mostrarPergunta={mostrarPergunta} botaoStatus={botaoStatus}/>
+                    <PerguntasF data-test="flashcard" botaoStatus={botaoStatus}>
+                        <p data-test="flashcard-text">Pergunta {indice + 1}</p>
+                        <IconePergunta mostrarPergunta={mostrarPergunta} botaoStatus={botaoStatus} />
                     </PerguntasF>
                 )
                 :
@@ -52,7 +52,7 @@ export default function CartasTelaPrincipal(props) {
                             (
                                 <>
                                     {card.question}
-                                    <img onClick={turnedCard} src={imagemPerguntasA} alt='Imagem play das perguntas' />
+                                    <img data-test="turn-btn" onClick={turnedCard} src={imagemPerguntasA} alt='Imagem play das perguntas' />
                                 </>
                             )
                             :
@@ -60,9 +60,9 @@ export default function CartasTelaPrincipal(props) {
                                 <>
                                     {card.answer}
                                     <Botoes>
-                                        <Botao onClick={() => ativarBotao('Erro')} background={vermelho}>Não lembrei</Botao>
-                                        <Botao onClick={() => ativarBotao('Quase acertou')} background={amarelo}>Quase não lembrei</Botao>
-                                        <Botao onClick={() => ativarBotao('Acertou')} background={verde}>Zap!</Botao>
+                                        <Botao data-test="no-btn" onClick={() => ativarBotao('Erro')} background={vermelho}>Não lembrei</Botao>
+                                        <Botao data-test="partial-btn" onClick={() => ativarBotao('Quase acertou')} background={amarelo}>Quase não lembrei</Botao>
+                                        <Botao data-test="zap-btn" onClick={() => ativarBotao('Acertou')} background={verde}>Zap!</Botao>
                                     </Botoes>
                                 </>
                             )

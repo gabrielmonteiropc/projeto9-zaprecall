@@ -7,10 +7,10 @@ export default function IconePergunta(props) {
     const { mostrarPergunta, botaoStatus } = props;
     return (
         <>
-            {botaoStatus === 'Erro' && (<img onClick={mostrarPergunta} src={erro} alt='Imagem play das perguntas' />)}
-            {botaoStatus === 'Quase acertou' && (<img onClick={mostrarPergunta} src={quase} alt='Imagem play das perguntas' />)}
-            {botaoStatus === 'Acertou' && (<img onClick={mostrarPergunta} src={acertou} alt='Imagem play das perguntas' />)}
-            {botaoStatus === 'Ainda não respondeu' && (<img onClick={mostrarPergunta} src={imagemPerguntasF} alt='Imagem play das perguntas' />)}
+            {botaoStatus === 'Erro' && (<img data-test="play-btn" onClick={mostrarPergunta} src={erro} alt='Imagem play das perguntas' />)}
+            {botaoStatus === 'Quase acertou' && (<img data-test="play-btn" onClick={mostrarPergunta} src={quase} alt='Imagem play das perguntas' />)}
+            {botaoStatus === 'Acertou' && (<img data-test="play-btn" onClick={mostrarPergunta} src={acertou} alt='Imagem play das perguntas' />)}
+            {botaoStatus === 'Ainda não respondeu' && (<img data-test="play-btn" onClick={mostrarPergunta} src={imagemPerguntasF} alt='Imagem play das perguntas' />)}
         </>
     )
 }

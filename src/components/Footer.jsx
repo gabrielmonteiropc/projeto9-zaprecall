@@ -5,7 +5,7 @@ export default function Footer(props) {
     const {cards, contador} = props;
     return (
 
-        <TarefasConcluidas>
+        <TarefasConcluidas data-test="footer">
             {contador}/{cards.length} CONCLUÍDAS
         </TarefasConcluidas>
 
