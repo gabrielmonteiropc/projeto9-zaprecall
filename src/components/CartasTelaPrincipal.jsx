@@ -50,21 +50,21 @@ export default function CartasTelaPrincipal(props) {
                         {!virarCarta
                             ?
                             (
-                                <>
+                                <div data-test="flashcard-text">
                                     {card.question}
                                     <img data-test="turn-btn" onClick={turnedCard} src={imagemPerguntasA} alt='Imagem play das perguntas' />
-                                </>
+                                </div>
                             )
                             :
                             (
-                                <>
+                                <div data-test="flashcard-text">
                                     {card.answer}
                                     <Botoes>
                                         <Botao data-test="no-btn" onClick={() => ativarBotao('Erro')} background={vermelho}>Não lembrei</Botao>
                                         <Botao data-test="partial-btn" onClick={() => ativarBotao('Quase acertou')} background={amarelo}>Quase não lembrei</Botao>
                                         <Botao data-test="zap-btn" onClick={() => ativarBotao('Acertou')} background={verde}>Zap!</Botao>
                                     </Botoes>
-                                </>
+                                </div>
                             )
                         }
                     </PerguntasA>
