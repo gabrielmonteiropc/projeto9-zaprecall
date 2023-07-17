@@ -41,7 +41,7 @@ export default function CartasTelaPrincipal(props) {
                 (
                     <PerguntasF data-test="flashcard" botaoStatus={botaoStatus}>
                         <p data-test="flashcard-text">Pergunta {indice + 1}</p>
-                        <IconePergunta mostrarPergunta={mostrarPergunta} botaoStatus={botaoStatus} />
+                        <IconePergunta data-test="flashcard-text" mostrarPergunta={mostrarPergunta} botaoStatus={botaoStatus} />
                     </PerguntasF>
                 )
                 :
