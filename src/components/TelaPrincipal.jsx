@@ -8,6 +8,8 @@ export default function TelaPrincipal(props) {
 
     const { cards } = props;
 
+    const [contador, setContador] = useState(0);
+
     return (
 
         <Tela>
@@ -19,10 +21,10 @@ export default function TelaPrincipal(props) {
 
             </Logo>
 
-            {cards.map((card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} />)}
+            {cards.map((card, indice) => <CartasTelaPrincipal key={card.question} indice={indice} card={card} contador={contador} setContador={setContador} />)}
 
 
-            <Footer />
+            <Footer cards={cards} contador={contador} />
 
         </Tela>
 

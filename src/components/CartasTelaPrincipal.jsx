@@ -6,7 +6,7 @@ import IconePergunta from './IconePergunta'
 
 export default function CartasTelaPrincipal(props) {
 
-    const { card, indice } = props;
+    const { card, indice, contador, setContador } = props;
 
     //Variáveis de Estado
     const [comecar, setComecar] = useState(false);
@@ -30,6 +30,8 @@ export default function CartasTelaPrincipal(props) {
 
         setBotaoStatus(resposta);
         setComecar(false);
+
+        setContador(contador + 1);
     }
 
     return (

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 
-export default function Footer() {
+export default function Footer(props) {
+    const {cards, contador} = props;
     return (
 
         <TarefasConcluidas>
-            0/8 CONCLUÍDAS
+            {contador}/{cards.length} CONCLUÍDAS
         </TarefasConcluidas>
 
     );
