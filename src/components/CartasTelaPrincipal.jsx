@@ -1,8 +1,8 @@
-import imagemPerguntasF from './../assets/seta_play.png'
 import styled from 'styled-components'
-import imagemPerguntasA from './../assets/seta_virar.png'
 import { useState } from 'react';
-import{vermelho, verde, amarelo, cinza } from './../mudarCorBotao.js'
+import imagemPerguntasA from './../assets/seta_virar.png'
+import { vermelho, verde, amarelo, cinza } from './../mudarCorBotao.js'
+import IconePergunta from './IconePergunta'
 
 export default function CartasTelaPrincipal(props) {
 
@@ -11,17 +11,25 @@ export default function CartasTelaPrincipal(props) {
     //Variáveis de Estado
     const [comecar, setComecar] = useState(false);
     const [virarCarta, setVirarCarta] = useState(false);
+    const [botaoStatus, setBotaoStatus] = useState('Ainda não respondeu');
 
 
     function mostrarPergunta() {
 
-        setComecar(true);
-
+        if(botaoStatus === 'Ainda não respondeu' ){
+            setComecar(true);
+        }
     }
 
-    function turnedCard(){
+    function turnedCard() {
 
         setVirarCarta(true);
+    }
+
+    function ativarBotao(resposta) {
+
+        setBotaoStatus(resposta);
+        setComecar(false);
     }
 
     return (
@@ -29,34 +37,34 @@ export default function CartasTelaPrincipal(props) {
             {!comecar
                 ?
                 (
-                    <PerguntasF>
+                    <PerguntasF botaoStatus={botaoStatus}>
                         <p>Pergunta {indice + 1}</p>
-                        <img onClick={mostrarPergunta} src={imagemPerguntasF} alt='Imagem play das perguntas' />
+                        <IconePergunta mostrarPergunta={mostrarPergunta} botaoStatus={botaoStatus}/>
                     </PerguntasF>
                 )
                 :
                 (
                     < PerguntasA>
                         {!virarCarta
-                        ?
+                            ?
                             (
                                 <>
                                     {card.question}
                                     <img onClick={turnedCard} src={imagemPerguntasA} alt='Imagem play das perguntas' />
                                 </>
                             )
-                        :
-                            (       
+                            :
+                            (
                                 <>
                                     {card.answer}
                                     <Botoes>
-                                        <Botao corBotao={vermelho}>Não lembrei</Botao>
-                                        <Botao corBotao={amarelo}>Quase não lembrei</Botao>
-                                        <Botao corBotao={verde}>Zap!</Botao>
-                                    </Botoes> 
+                                        <Botao onClick={() => ativarBotao('Erro')} background={vermelho}>Não lembrei</Botao>
+                                        <Botao onClick={() => ativarBotao('Quase acertou')} background={amarelo}>Quase não lembrei</Botao>
+                                        <Botao onClick={() => ativarBotao('Acertou')} background={verde}>Zap!</Botao>
+                                    </Botoes>
                                 </>
                             )
-                    }
+                        }
                     </PerguntasA>
                 )
             }
@@ -81,6 +89,19 @@ const PerguntasF = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
+        text-decoration: ${props => props.botaoStatus === 'Ainda não respondeu' ? 'none' : 'line-through'};
+        color: ${props => {
+        switch (props.botaoStatus) {
+            case 'Erro':
+                return vermelho;
+            case 'Quase acertou':
+                return amarelo;
+            case 'Acertou':
+                return verde;
+            default:
+                return cinza;
+        }
+    }}
     }
 `
 const PerguntasA = styled.div`
@@ -126,8 +147,8 @@ const Botao = styled.button`
     justify-content: center;
     text-align: center;
     color: #FFFFFF;
-    background-color: ${ props => props.corBotao };
+    background-color: ${props => props.background};
     border-radius: 5px;
-    border: 1px solid ${ props => props.corBotao };
+    border: 1px solid ${props => props.background};
     padding: 5px;
 `;

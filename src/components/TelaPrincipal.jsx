@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import logo from './../assets/logo.png'
-import CartasTelaPrincipal from './CartasTelaPrincipal'
+import CartasTelaPrincipal from "./CartasTelaPrincipal.jsx"
 import Footer from './Footer';
 import styled from 'styled-components'
 
